@@ -1,0 +1,2 @@
+export const FETCH_MOVIE_BY_NAME = 'FETCH_MOVIE_BY_NAME';
+export const FETCH_MOVIE_BY_ID = 'FETCH_MOVIE_BY_ID';

@@ -1,13 +1,27 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
+import {applyMiddleware, createStore} from 'redux';
+import {BrowserRouter} from 'react-router-dom';
+import {Provider} from 'react-redux';
+import moviesReducer from './store/reducers/moviesReducer';
+import thunk from "redux-thunk";
+
+const store = createStore(moviesReducer, applyMiddleware(thunk));
+
+const app = (
+  //<React.StrictMode>
+  <Provider store={store}>
+    <BrowserRouter>
+      <App/>
+    </BrowserRouter>
+  </Provider>
+  //</React.StrictMode>
+);
 
 ReactDOM.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
+  app,
   document.getElementById('root')
 );
 
